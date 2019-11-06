@@ -1,0 +1,9 @@
+localVar: d1  at fun longdouble -> float
+localVar: x  at fun longdouble -> double
+localVar: s1  at main longdouble -> double
+localVar: t1  at main longdouble -> double
+localVar: t2  at main longdouble -> double
+localVar: h  at main longdouble -> double
+localVar: dppi  at main longdouble -> float
+call: acos at mainacos -> acosf
+call: sqrt at mainsqrt -> sqrtf

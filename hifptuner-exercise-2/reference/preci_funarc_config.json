@@ -1,0 +1,63 @@
+{
+	"localVar": {
+		"function": "fun",
+		"type": "longdouble",
+		"name": "t1",
+	},
+	"localVar": {
+		"function": "fun",
+		"type": "float",
+		"name": "d1",
+	},
+	"localVar": {
+		"function": "fun",
+		"type": "double",
+		"name": "x",
+	},
+	"call": {
+		"function": "fun",
+		"switch": "sin",
+		"type": ["double","double"],
+		"id": "24",
+		"name": "sin",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "double",
+		"name": "s1",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "double",
+		"name": "t1",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "double",
+		"name": "t2",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "double",
+		"name": "h",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "float",
+		"name": "dppi",
+	},
+	"call": {
+		"function": "main",
+		"switch": "acosf",
+		"type": ["float","float"],
+		"id": "72",
+		"name": "acos",
+	},
+	"call": {
+		"function": "main",
+		"switch": "sqrtf",
+		"type": ["float","float"],
+		"id": "107",
+		"name": "sqrt",
+	},
+}

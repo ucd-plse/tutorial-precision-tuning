@@ -1,0 +1,9 @@
+localVar: x  at fun longdouble -> float
+localVar: pi  at fun longdouble -> double
+call: sin at funsin -> sinf
+localVar: a  at main longdouble -> float
+localVar: b  at main longdouble -> float
+localVar: s1  at main longdouble -> double
+localVar: h  at main longdouble -> float
+localVar: fuzz  at main longdouble -> float
+localVar: x  at main longdouble -> double

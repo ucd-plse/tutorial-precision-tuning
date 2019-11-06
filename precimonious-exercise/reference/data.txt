@@ -1,0 +1,7 @@
+Number of configurarions explored by Precimonious:
+
+  TOTAL: 110
+
+   --VALID   18
+   --INVALID 92
+   --FAILED  0

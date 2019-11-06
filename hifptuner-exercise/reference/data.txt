@@ -1,0 +1,8 @@
+
+                     HIFPTUNER    PRECI 
+
+configurations          20         110
+
+- VALID                  6          18
+- INVALID               14          92
+- FAILED                 0           0  

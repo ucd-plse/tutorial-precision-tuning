@@ -1,0 +1,61 @@
+{
+	"localVar": {
+		"function": "fun",
+		"type": "double",
+		"name": "x",
+	},
+	"localVar": {
+		"function": "fun",
+		"type": "double",
+		"name": "pi",
+	},
+	"localVar": {
+		"function": "fun",
+		"type": "double",
+		"name": "result",
+	},
+	"call": {
+		"function": "fun",
+		"switch": "acos",
+		"type": ["double","double"],
+		"id": "4",
+		"name": "acos",
+	},
+	"call": {
+		"function": "fun",
+		"switch": "sinf",
+		"type": ["float","float"],
+		"id": "11",
+		"name": "sin",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "double",
+		"name": "a",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "double",
+		"name": "b",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "double",
+		"name": "s1",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "double",
+		"name": "h",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "float",
+		"name": "fuzz",
+	},
+	"localVar": {
+		"function": "main",
+		"type": "double",
+		"name": "x",
+	},
+}
