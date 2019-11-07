@@ -3,7 +3,7 @@
 ## Build Precimonious and HiFPTuner via docker
 ### Pull Docker Image from Docker Hub
 ```
-docker pull hguo15/precision-tuning
+docker pull ucdavisplse/precision-tuning
 docker run -ti --name=precision-tuning hguo15/precision-tuning
 ```
 ###  Or Build Docker Image by Yourself
