@@ -1,7 +1,7 @@
 # SC19 Precision Tuning Tutorial
 
-### Precimonious source: https://github.com/ucd-plse/precimonious
-### HiFPTuner source: https://github.com/ucd-plse/HiFPTuner
+#### Precimonious source: https://github.com/ucd-plse/precimonious
+#### HiFPTuner source: https://github.com/ucd-plse/HiFPTuner
 
 ## Build Precimonious and HiFPTuner via docker
 ### Pull Docker Image from Docker Hub
@@ -143,6 +143,6 @@ time ./hifptuner_tuned_funarc.out
 time ./original_funarc.out
 time ./preci_tuned_funarc.out
 time ./hifptuner_tuned_funarc.out
-cat results-hifptuner/log.txt
 cat results-preci/log.txt
+cat results-hifptuner/log.txt
 ```
