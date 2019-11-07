@@ -8,8 +8,8 @@ docker run -ti --name=precision-tuning hguo15/precision-tuning
 ```
 ###  Or Build Docker Image by Yourself
 ```
-git clone https://github.com/ucd-plse/docker-pearc19.git
-cd docker-pearc19
+git clone https://github.com/ucd-plse/tutorial-precision-tuning.git
+cd tutorial-precision-tuning 
 docker build -t docker-precision-tuning .
 docker run -ti --name=precision-tuning docker-precision-tuning
 ```
