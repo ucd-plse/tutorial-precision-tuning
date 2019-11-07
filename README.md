@@ -1,5 +1,8 @@
 # SC19 Precision Tuning Tutorial
 
+### Precimonious source: https://github.com/ucd-plse/precimonious
+### HiFPTuner source: https://github.com/ucd-plse/HiFPTuner
+
 ## Build Precimonious and HiFPTuner via docker
 ### Pull Docker Image from Docker Hub
 ```
@@ -124,4 +127,22 @@ cat results-hifptuner/log.txt
 cat results-preci/log.txt
 ```
 ### Exercise 2: funarc
-Exercise 2 contains test "funarc.c" and its configuration files and can be run with the same steps shown in Exercise 1.
+Exercise 2 contains test "funarc.c" and its configuration files and can be run with the same steps shown in Exercise 1
+```
+cd /root/HiFPTuner/exercise-2
+make clean
+make
+
+./run-hifptuner.sh funarc
+./run-config.sh funarc
+time ./original_funarc.out
+time ./hifptuner_tuned_funarc.out
+
+./run-preci.sh funarc
+./run-config.sh funarc
+time ./original_funarc.out
+time ./preci_tuned_funarc.out
+time ./hifptuner_tuned_funarc.out
+cat results-hifptuner/log.txt
+cat results-preci/log.txt
+```
