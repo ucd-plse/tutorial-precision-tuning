@@ -95,4 +95,20 @@ Precision Tuning Tutorial
 
    Exercise-2
 
-     Exercise 2 contains test "funarc.c" and its configuration files and can be run with the same steps shown in Exercise 1.
+     Exercise 2 contains test "funarc.c" and its configuration files and can be run with the same steps shown in Exercise 1
+        $cd /root/HiFPTuner/exercise-2
+        $make clean
+        $make
+
+        $./run-hifptuner.sh funarc
+        $./run-config.sh funarc
+        $time ./original_funarc.out
+        $time ./hifptuner_tuned_funarc.out
+        
+        $./run-preci.sh funarc
+        $./run-config.sh funarc
+        $time ./original_funarc.out
+        $time ./preci_tuned_funarc.out
+        $time ./hifptuner_tuned_funarc.out
+        $cat results-preci/log.txt
+        $cat results-hifptuner/log.txt
