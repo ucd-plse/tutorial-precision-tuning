@@ -7,7 +7,7 @@
 ### Pull Docker Image from Docker Hub
 ```
 docker pull ucdavisplse/precision-tuning
-docker run -ti --name=precision-tuning hguo15/precision-tuning
+docker run -ti --name=precision-tuning ucdavisplse/precision-tuning
 ```
 ###  Or Build Docker Image by Yourself
 ```
@@ -18,6 +18,11 @@ docker run -ti --name=precision-tuning docker-precision-tuning
 ```
 
 ## Precimonious Exercises
+
+__(For more detailed instructions on how to run Precimonious that may be
+helpful for those looking to modify parameters or adapt the precision
+search to another target, see `Note` below)__
+
 ### Exercise : simpsons
 Change to working directory
 ```
@@ -146,3 +151,46 @@ time ./hifptuner_tuned_funarc.out
 cat results-preci/log.txt
 cat results-hifptuner/log.txt
 ```
+
+## Note: More Detailed Instructions for Running Precimonious
+
+For the following instructions, note that `$(TARGET)` refers to the
+name of the target source code file without its file extension, i.e.
+`simpsons.c` becomes `simpsons`.
+
+0. Target source code must be instrumented with code for checking
+   error thresholds, measuring timing, logging results, and dummy
+   calls to any lowered-precision functions that are candidates for
+   switching out with existing calls. See source code of examples.
+1. Instrumented target source code, auxiliaries, and
+   utilities must be compiled to bitcode and then linked to generate
+   `$(TARGET).bc`. See Makefile of examples.
+2. Execute `original_$(TARGET).out` to do one-time generation of
+   `spec.cov` which contains error threshold information for the
+   ensuing execution of the Precimonious search.
+3. Comment out generating line of code for `spec.cov` in `$(TARGET)`
+   source code. This line contains a call to the function `cov_spec_log()`.
+4. Repeat step 1 to recompile and relink target source code,
+   auxiliaries, and utilities.
+5. Execute `$CORVETTE_PATH/scripts/dependencies.sh $(TARGET)
+   $(TARGET_FUNC)` to generate `include.txt` and `include_global.txt`
+   which contain lists of discovered functions and global variables to be
+   included in the search space. For the examples, `$(TARGET_FUNC)` is
+   `main`.
+6. Manually create `exclude.txt` and `exclude_local.txt` which contain
+   lists of functions and local variables to be excluded from the
+   search space.
+7. If running one of the examples, execute the included
+   `run-analysis.sh` script a la `./run-analysis.sh $(TARGET)`. This
+   script performs the following actions (along with pretty-printing
+   results):
+    - ensures correct environment variables are set for LLVM and
+     Precimonious scripts
+    - creates a JSON file containing the initial configuration via
+      `$CORVETTE_PATH/scripts/pconfig.sh $(TARGET)`
+    - creates a JSON file detailing the search space via
+      `$CORVETTE_PATH/scripts/search.sh $(TARGET)`
+    - runs the search via `$CORVETTE_PATH/scripts/dd2.py $(TARGET).bc
+      search_$(TARGET).json config_$(TARGET).json`
+   
+   The above steps may be run individually.
