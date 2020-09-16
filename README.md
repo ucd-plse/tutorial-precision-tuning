@@ -162,10 +162,10 @@ name of the target source code file without its file extension, i.e.
    error thresholds, measuring timing, logging results, and dummy
    calls to any lowered-precision functions that are candidates for
    switching out with existing calls. See source code of examples.
-1. Instrumented target source code, auxiliaries, and
+1. Instrument target source code, auxiliaries, and
    utilities must be compiled to bitcode and then linked to generate
    `$(TARGET).bc`. See Makefile of examples.
-2. Remove file `spec.cov`. 
+2. Remove file `spec.cov`, if it exists. 
 3. Execute `original_$(TARGET).out` to do one-time generation of
    `spec.cov` which contains error threshold information for the
    ensuing execution of the Precimonious search.
