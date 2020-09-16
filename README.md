@@ -165,22 +165,23 @@ name of the target source code file without its file extension, i.e.
 1. Instrumented target source code, auxiliaries, and
    utilities must be compiled to bitcode and then linked to generate
    `$(TARGET).bc`. See Makefile of examples.
-2. Execute `original_$(TARGET).out` to do one-time generation of
+2. Remove file `spec.cov`. 
+3. Execute `original_$(TARGET).out` to do one-time generation of
    `spec.cov` which contains error threshold information for the
    ensuing execution of the Precimonious search.
-3. Comment out generating line of code for `spec.cov` in `$(TARGET)`
+4. Comment out generating line of code for `spec.cov` in `$(TARGET)`
    source code. This line contains a call to the function `cov_spec_log()`.
-4. Repeat step 1 to recompile and relink target source code,
+5. Repeat step 1 to recompile and relink target source code,
    auxiliaries, and utilities.
-5. Execute `$CORVETTE_PATH/scripts/dependencies.sh $(TARGET)
+6. Execute `$CORVETTE_PATH/scripts/dependencies.sh $(TARGET)
    $(TARGET_FUNC)` to generate `include.txt` and `include_global.txt`
    which contain lists of discovered functions and global variables to be
    included in the search space. For the examples, `$(TARGET_FUNC)` is
    `main`.
-6. Manually create `exclude.txt` and `exclude_local.txt` which contain
+7. Manually create `exclude.txt` and `exclude_local.txt` which contain
    lists of functions and local variables to be excluded from the
    search space.
-7. If running one of the examples, execute the included
+8. If running one of the examples, execute the included
    `run-analysis.sh` script a la `./run-analysis.sh $(TARGET)`. This
    script performs the following actions (along with pretty-printing
    results):
