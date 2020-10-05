@@ -158,11 +158,11 @@ For the following instructions, note that `$(TARGET)` refers to the
 name of the target source code file without its file extension, i.e.
 `simpsons.c` becomes `simpsons`.
 
-0. Target source code must be instrumented with code for checking
+0. Target source code must be annotated with code for checking
    error thresholds, measuring timing, logging results, and dummy
    calls to any lowered-precision functions that are candidates for
    switching out with existing calls. See source code of examples.
-1. Instrument target source code, auxiliaries, and
+1. Annotated source code, auxiliaries, and
    utilities must be compiled to bitcode and then linked to generate
    `$(TARGET).bc`. See Makefile of examples.
 2. Remove file `spec.cov`, if it exists. 
