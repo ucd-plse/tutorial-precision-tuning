@@ -154,18 +154,28 @@ cat results-hifptuner/log.txt
 
 ## Note: More Detailed Instructions for Running Precimonious
 
-For the following instructions, note that `$(TARGET)` refers to the
+Target source code must be annotated with code for checking
+error thresholds, measuring timing, logging results, and dummy
+calls to any lowered-precision functions that are candidates for
+switching out with existing calls.
+
+Of particular note is the error threshold used to ascertain correctness;
+this is specified by the value of `epsilon` in the source code of the target
+program and must be saved to a file called `spec.cov`. The generation of `spec.cov`
+is handled by a call to the `cov_spec_log` function in the target source. Note that
+there is a previously-generated `spec.cov` file provided in the repo.
+
+However, those wishing to change the error threshold for the
+experiment can follow these steps. For the following instructions, note that `$(TARGET)` refers to the
 name of the target source code file without its file extension, i.e.
 `simpsons.c` becomes `simpsons`.
 
-0. Target source code must be annotated with code for checking
-   error thresholds, measuring timing, logging results, and dummy
-   calls to any lowered-precision functions that are candidates for
-   switching out with existing calls. See source code of examples.
+0. Set the desired value of `epsilon` in the `$(TARGET)`
+    and then be sure that the call to `cov_spec_log()` is uncommented.
 1. Annotated source code, auxiliaries, and
    utilities must be compiled to bitcode and then linked to generate
-   `$(TARGET).bc`. See Makefile of examples.
-2. Remove file `spec.cov`, if it exists. 
+   `$(TARGET).bc`. See slides-sc19.pdf and Makefiles of the examples.
+2. Remove any previously-generated `spec.cov` file, if it exists. 
 3. Execute `original_$(TARGET).out` to do one-time generation of
    `spec.cov` which contains error threshold information for the
    ensuing execution of the Precimonious search.
