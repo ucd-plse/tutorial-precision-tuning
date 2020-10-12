@@ -164,7 +164,10 @@ name of the target source code file without its file extension, i.e.
    switching out with existing calls. See source code of examples.
 1. Annotated source code, auxiliaries, and
    utilities must be compiled to bitcode and then linked to generate
-   `$(TARGET).bc`. See Makefile of examples.
+   `$(TARGET).bc`. See slides-sc19.pdf and Makefile of examples.
+   For example, if working on Precimonious Exercise: simpsons, the error threshold can be changed by anonotate file `$simpsons.c` in two steps:
+   - change the `epsilon` value in the line `long double epsilon = -8.0;`
+   - uncomment the line `// cov_spec_log("spec.cov", threshold, 1, (long double)s1);`
 2. Remove file `spec.cov`, if it exists. 
 3. Execute `original_$(TARGET).out` to do one-time generation of
    `spec.cov` which contains error threshold information for the
